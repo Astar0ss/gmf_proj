@@ -1,4 +1,7 @@
 from django.contrib import admin
-from chat.models import Message
+from .models import GuestbookMessage
 
-admin.site.register(Message)
+@admin.register(GuestbookMessage)
+class GuestbookMessageAdmin(admin.ModelAdmin):
+    list_display = ('author_name', 'author_email', 'date_posted')
+

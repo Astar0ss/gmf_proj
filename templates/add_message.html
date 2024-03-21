@@ -2,15 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guestbook</title>
+    <title>Add Message</title>
 </head>
 <body>
-    <h1>Guestbook</h1>
-    <ul>
-        {% for message in messages %}
-            <li>{{ message.author_name }} - {{ message.date_posted }}: {{ message.message_text }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Add Message</h1>
     <form method="post" action="{% url 'add_message' %}">
         {% csrf_token %}
         <label for="author_name">Name:</label>

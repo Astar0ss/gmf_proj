@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guestbook</title>
+    <title>Chat Room</title>
 </head>
 <body>
-    <h1>Guestbook</h1>
+    <h1>Chat Room</h1>
     <ul>
-        {% for message in messages %}
-            <li>{{ message.author_name }} - {{ message.date_posted }}: {{ message.message_text }}</li>
+        {% for chat_message in chat_messages %}
+            <li>{{ chat_message.author_name }} - {{ chat_message.date_posted }}: {{ chat_message.message_text }}</li>
         {% endfor %}
     </ul>
-    <form method="post" action="{% url 'add_message' %}">
+    <form method="post" action="{% url 'send_message' %}">
         {% csrf_token %}
         <label for="author_name">Name:</label>
         <input type="text" id="author_name" name="author_name" required><br>
-        <label for="author_email">Email:</label>
-        <input type="email" id="author_email" name="author_email"><br>
         <label for="message_text">Message:</label><br>
         <textarea id="message_text" name="message_text" rows="4" cols="50" required></textarea><br>
-        <button type="submit">Add Message</button>
+        <button type="submit">Send Message</button>
     </form>
 </body>
 </html>

@@ -1,8 +1,7 @@
 from django import forms
-from chat.models import Message
+from .models import GuestbookMessage
 
-
-class MessageForm(forms.ModelForm):
+class GuestbookMessageForm(forms.ModelForm):
     class Meta:
-        model = Message
-        fields = ['author_name','author_email','message_text']
+        model = GuestbookMessage
+        fields = ['author_name', 'author_email', 'message_text']
